@@ -1,0 +1,18 @@
+5 rows updated.
+
+PROPERTY_ID PROPERTY_ADDRESS                                   COUNCIL_COUNCIL_NAME                             
+----------- -------------------------------------------------- --------------------------------------------------
+          1 900 Dandenong RD                                   City of Glen Eira                                 
+          2 900 Fola RD                                        City of En Carden                                 
+          3 900 Mada RD                                        City of Bliss Land                                
+          4 900 Lakhan RD                                      City of Bliss Land                                
+          5 900 Lakhan RD                                      City of Bliss Land                                
+          6 900 Lakhan RD                                      City of Bliss Land                                
+          7 900 Lakhan RD                                      City of Bliss Land                                
+          8 900 Lakhan RD                                      City of Bliss Land                                
+          9 Jubilee Road                                       City of Far Out                                   
+
+ 9 rows selected 
+
+Commit complete.
+

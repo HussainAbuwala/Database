@@ -1,0 +1,143 @@
+Sequence BIN_BIN_ID_SEQ dropped.
+
+Sequence BIN_REQUEST_REQUEST_ID_SEQ dropped.
+
+Sequence CONTRACT_CONTRACT_NO_SEQ dropped.
+
+Sequence DRIVER_LICENSE_NO_SEQ dropped.
+
+Sequence INVOICE_INVOICE_NO_SEQ dropped.
+
+Sequence PROPERTY_PROPERTY_ID_SEQ dropped.
+
+Sequence SCHEDULE_SCHDEULE_ID_SEQ dropped.
+
+Sequence TRUCK_TVI_NO_SEQ dropped.
+
+Table BIN dropped.
+
+Table BIN_CONTRACT dropped.
+
+Table BIN_REQUEST dropped.
+
+Table BIN_TYPE dropped.
+
+Table COL_CONTRACT dropped.
+
+Table CONTRACT dropped.
+
+Table COUNCIL dropped.
+
+Table DRIVER dropped.
+
+Table INVOICE dropped.
+
+Table PROPERTY dropped.
+
+Table SCHEDULE dropped.
+
+Table TRUCK dropped.
+
+Table BIN created.
+
+Table BIN altered.
+
+Table BIN_CONTRACT created.
+
+Table BIN_CONTRACT altered.
+
+Table BIN_CONTRACT altered.
+
+Table BIN_REQUEST created.
+
+Table BIN_REQUEST altered.
+
+Table BIN_TYPE created.
+
+Table BIN_TYPE altered.
+
+Table COL_CONTRACT created.
+
+Table COL_CONTRACT altered.
+
+Table COL_CONTRACT altered.
+
+Table CONTRACT created.
+
+Table CONTRACT altered.
+
+Table CONTRACT altered.
+
+Table COUNCIL created.
+
+Table COUNCIL altered.
+
+Table DRIVER created.
+
+Table DRIVER altered.
+
+Table INVOICE created.
+
+Table INVOICE altered.
+
+Table INVOICE altered.
+
+Table PROPERTY created.
+
+Table PROPERTY altered.
+
+Table SCHEDULE created.
+
+Table SCHEDULE altered.
+
+Table TRUCK created.
+
+Table TRUCK altered.
+
+Table TRUCK altered.
+
+Table BIN altered.
+
+Table BIN_CONTRACT altered.
+
+Table BIN_CONTRACT altered.
+
+Table BIN altered.
+
+Table BIN_REQUEST altered.
+
+Table BIN_REQUEST altered.
+
+Table BIN_REQUEST altered.
+
+Table BIN_REQUEST altered.
+
+Table COL_CONTRACT altered.
+
+Table CONTRACT altered.
+
+Table INVOICE altered.
+
+Table PROPERTY altered.
+
+Table SCHEDULE altered.
+
+Table SCHEDULE altered.
+
+Table SCHEDULE altered.
+
+Sequence BIN_BIN_ID_SEQ created.
+
+Sequence BIN_REQUEST_REQUEST_ID_SEQ created.
+
+Sequence CONTRACT_CONTRACT_NO_SEQ created.
+
+Sequence DRIVER_LICENSE_NO_SEQ created.
+
+Sequence INVOICE_INVOICE_NO_SEQ created.
+
+Sequence PROPERTY_PROPERTY_ID_SEQ created.
+
+Sequence SCHEDULE_SCHDEULE_ID_SEQ created.
+
+Sequence TRUCK_TVI_NO_SEQ created.

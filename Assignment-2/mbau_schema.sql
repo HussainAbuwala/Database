@@ -1,0 +1,280 @@
+SQL> CREATE TABLE BIN
+  (
+    bin_id               NUMBER (7) NOT NULL ,
+    PROPERTY_property_id NUMBER (7) NOT NULL ,
+    BIN_TYPE_bin_type    VARCHAR2 (50) NOT NULL ,
+    BIN_TYPE_volum_bin   NUMBER (7) NOT NULL
+  ) ;
+
+Table BIN created.
+
+SQL> ALTER TABLE BIN ADD CONSTRAINT BIN_PK PRIMARY KEY ( bin_id ) ;
+
+Table BIN altered.
+
+SQL> CREATE TABLE BIN_CONTRACT
+  (
+    bin_cost             NUMBER (7) NOT NULL ,
+    CONTRACT_contract_no NUMBER (7) NOT NULL ,
+    BIN_TYPE_bin_type    VARCHAR2 (50) NOT NULL ,
+    BIN_TYPE_volum_bin   NUMBER (7) NOT NULL
+  ) ;
+
+Table BIN_CONTRACT created.
+
+SQL> ALTER TABLE BIN_CONTRACT ADD CONSTRAINT chk_bin_cost CHECK ( bin_cost > 0) ;
+
+Table BIN_CONTRACT altered.
+
+SQL> ALTER TABLE BIN_CONTRACT ADD CONSTRAINT BIN_CONTRACT_PK PRIMARY KEY ( CONTRACT_contract_no, BIN_TYPE_bin_type, BIN_TYPE_volum_bin ) ;
+
+Table BIN_CONTRACT altered.
+
+SQL> CREATE TABLE BIN_REQUEST
+  (
+    request_id           NUMBER (7) NOT NULL ,
+    request_type         VARCHAR2 (50) NOT NULL ,
+    PROPERTY_property_id NUMBER (7) NOT NULL ,
+    BIN_bin_id           NUMBER (7) NOT NULL ,
+    BIN_TYPE_bin_type    VARCHAR2 (50) NOT NULL ,
+    BIN_TYPE_volum_bin   NUMBER (7) NOT NULL ,
+    SCHEDULE_schdeule_id NUMBER (7) NOT NULL
+  ) ;
+
+Table BIN_REQUEST created.
+
+SQL> ALTER TABLE BIN_REQUEST ADD CONSTRAINT BIN_REQUEST_PK PRIMARY KEY ( request_id ) ;
+
+Table BIN_REQUEST altered.
+
+SQL> CREATE TABLE BIN_TYPE
+  (
+    bin_type  VARCHAR2 (50) NOT NULL ,
+    volum_bin NUMBER (7) NOT NULL
+  ) ;
+
+Table BIN_TYPE created.
+
+SQL> ALTER TABLE BIN_TYPE ADD CONSTRAINT BIN_TYPE_PK PRIMARY KEY ( bin_type, volum_bin ) ;
+
+Table BIN_TYPE altered.
+
+SQL> CREATE TABLE COL_CONTRACT
+  (
+    collection_type      VARCHAR2 (50) NOT NULL ,
+    collection_cost      NUMBER (7) NOT NULL ,
+    CONTRACT_contract_no NUMBER (7) NOT NULL
+  ) ;
+
+Table COL_CONTRACT created.
+
+SQL> ALTER TABLE COL_CONTRACT ADD CONSTRAINT chk_collection_cost CHECK ( collection_cost > 0) ;
+
+Table COL_CONTRACT altered.
+
+SQL> ALTER TABLE COL_CONTRACT ADD CONSTRAINT COL_CONTRACT_PK PRIMARY KEY ( collection_type, CONTRACT_contract_no ) ;
+
+Table COL_CONTRACT altered.
+
+SQL> CREATE TABLE CONTRACT
+  (
+    contract_no          NUMBER (7) NOT NULL ,
+    contract_start_date  DATE NOT NULL ,
+    contract_end_date    DATE NOT NULL ,
+    COUNCIL_council_name VARCHAR2 (50) NOT NULL
+  ) ;
+
+Table CONTRACT created.
+
+SQL> ALTER TABLE CONTRACT ADD CONSTRAINT chk_strt_date CHECK ( (contract_start_date < contract_end_date)) ;
+
+Table CONTRACT altered.
+
+SQL> ALTER TABLE CONTRACT ADD CONSTRAINT CONTRACT_PK PRIMARY KEY ( contract_no ) ;
+
+Table CONTRACT altered.
+
+SQL> CREATE TABLE COUNCIL
+  ( council_name VARCHAR2 (50) NOT NULL
+  ) ;
+
+Table COUNCIL created.
+
+SQL> ALTER TABLE COUNCIL ADD CONSTRAINT COUNCIL_PK PRIMARY KEY ( council_name ) ;
+
+Table COUNCIL altered.
+
+SQL> CREATE TABLE DRIVER
+  (
+    license_no      NUMBER (7) NOT NULL ,
+    driver_name     VARCHAR2 (50) NOT NULL ,
+    date_of_birth   DATE NOT NULL ,
+    tax_file_number NUMBER (7) NOT NULL ,
+    home_address    VARCHAR2 (50) NOT NULL
+  ) ;
+
+Table DRIVER created.
+
+SQL> ALTER TABLE DRIVER ADD CONSTRAINT DRIVER_PK PRIMARY KEY ( license_no ) ;
+
+Table DRIVER altered.
+
+SQL> CREATE TABLE INVOICE
+  (
+    invoice_no           NUMBER (7) NOT NULL ,
+    qtr_start_date       DATE NOT NULL ,
+    qtr_end_date         DATE NOT NULL ,
+    CONTRACT_contract_no NUMBER (7) NOT NULL
+  ) ;
+
+Table INVOICE created.
+
+SQL> ALTER TABLE INVOICE ADD CONSTRAINT chk_qtr_start CHECK ( (qtr_start_date < qtr_end_date)) ;
+
+Table INVOICE altered.
+
+SQL> ALTER TABLE INVOICE ADD CONSTRAINT INVOICE_PK PRIMARY KEY ( invoice_no ) ;
+
+Table INVOICE altered.
+
+SQL> CREATE TABLE PROPERTY
+  (
+    property_id          NUMBER (7) NOT NULL ,
+    property_address     VARCHAR2 (50) NOT NULL ,
+    COUNCIL_council_name VARCHAR2 (50) NOT NULL
+  ) ;
+
+Table PROPERTY created.
+
+SQL> ALTER TABLE PROPERTY ADD CONSTRAINT PROPERTY_PK PRIMARY KEY ( property_id ) ;
+
+Table PROPERTY altered.
+
+SQL> CREATE TABLE SCHEDULE
+  (
+    schdeule_id        NUMBER (7) NOT NULL ,
+    schedule_date      DATE NOT NULL ,
+    TRUCK_tvi_no       NUMBER (7) NOT NULL ,
+    DRIVER_license_no  NUMBER (7) NOT NULL ,
+    DRIVER_license_no1 NUMBER (7) NOT NULL
+  ) ;
+
+Table SCHEDULE created.
+
+SQL> ALTER TABLE SCHEDULE ADD CONSTRAINT SCHEDULE_PK PRIMARY KEY ( schdeule_id ) ;
+
+Table SCHEDULE altered.
+
+SQL> CREATE TABLE TRUCK
+  (
+    tvi_no             NUMBER (7) NOT NULL ,
+    registration_no    NUMBER (7) NOT NULL ,
+    make               VARCHAR2 (50) NOT NULL ,
+    model              VARCHAR2 (50) NOT NULL ,
+    YEAR               NUMBER (7) NOT NULL ,
+    current_avaibility VARCHAR2 (50) NOT NULL
+  ) ;
+
+Table TRUCK created.
+
+SQL> ALTER TABLE TRUCK ADD CONSTRAINT chk_avaibility CHECK ( (current_avaibility = 'Y' OR current_avaibility = 'N')) ;
+
+Table TRUCK altered.
+
+SQL> ALTER TABLE TRUCK ADD CONSTRAINT TRUCK_PK PRIMARY KEY ( tvi_no ) ;
+
+Table TRUCK altered.
+
+SQL> ALTER TABLE BIN ADD CONSTRAINT BIN_BIN_TYPE_FK FOREIGN KEY ( BIN_TYPE_bin_type, BIN_TYPE_volum_bin ) REFERENCES BIN_TYPE ( bin_type, volum_bin ) ;
+
+Table BIN altered.
+
+SQL> ALTER TABLE BIN_CONTRACT ADD CONSTRAINT BIN_CONTRACT_BIN_TYPE_FK FOREIGN KEY ( BIN_TYPE_bin_type, BIN_TYPE_volum_bin ) REFERENCES BIN_TYPE ( bin_type, volum_bin ) ;
+
+Table BIN_CONTRACT altered.
+
+SQL> ALTER TABLE BIN_CONTRACT ADD CONSTRAINT BIN_CONTRACT_CONTRACT_FK FOREIGN KEY ( CONTRACT_contract_no ) REFERENCES CONTRACT ( contract_no ) ;
+
+Table BIN_CONTRACT altered.
+
+SQL> ALTER TABLE BIN ADD CONSTRAINT BIN_PROPERTY_FK FOREIGN KEY ( PROPERTY_property_id ) REFERENCES PROPERTY ( property_id ) ;
+
+Table BIN altered.
+
+SQL> ALTER TABLE BIN_REQUEST ADD CONSTRAINT BIN_REQUEST_BIN_FK FOREIGN KEY ( BIN_bin_id ) REFERENCES BIN ( bin_id ) ;
+
+Table BIN_REQUEST altered.
+
+SQL> ALTER TABLE BIN_REQUEST ADD CONSTRAINT BIN_REQUEST_BIN_TYPE_FK FOREIGN KEY ( BIN_TYPE_bin_type, BIN_TYPE_volum_bin ) REFERENCES BIN_TYPE ( bin_type, volum_bin ) ;
+
+Table BIN_REQUEST altered.
+
+SQL> ALTER TABLE BIN_REQUEST ADD CONSTRAINT BIN_REQUEST_PROPERTY_FK FOREIGN KEY ( PROPERTY_property_id ) REFERENCES PROPERTY ( property_id ) ;
+
+Table BIN_REQUEST altered.
+
+SQL> ALTER TABLE BIN_REQUEST ADD CONSTRAINT BIN_REQUEST_SCHEDULE_FK FOREIGN KEY ( SCHEDULE_schdeule_id ) REFERENCES SCHEDULE ( schdeule_id ) ;
+
+Table BIN_REQUEST altered.
+
+SQL> ALTER TABLE COL_CONTRACT ADD CONSTRAINT COL_CONTRACT_CONTRACT_FK FOREIGN KEY ( CONTRACT_contract_no ) REFERENCES CONTRACT ( contract_no ) ;
+
+Table COL_CONTRACT altered.
+
+SQL> ALTER TABLE CONTRACT ADD CONSTRAINT CONTRACT_COUNCIL_FK FOREIGN KEY ( COUNCIL_council_name ) REFERENCES COUNCIL ( council_name ) ;
+
+Table CONTRACT altered.
+
+SQL> ALTER TABLE INVOICE ADD CONSTRAINT INVOICE_CONTRACT_FK FOREIGN KEY ( CONTRACT_contract_no ) REFERENCES CONTRACT ( contract_no ) ;
+
+Table INVOICE altered.
+
+SQL> ALTER TABLE PROPERTY ADD CONSTRAINT PROPERTY_COUNCIL_FK FOREIGN KEY ( COUNCIL_council_name ) REFERENCES COUNCIL ( council_name ) ;
+
+Table PROPERTY altered.
+
+SQL> ALTER TABLE SCHEDULE ADD CONSTRAINT SCHEDULE_DRIVER_FK FOREIGN KEY ( DRIVER_license_no ) REFERENCES DRIVER ( license_no ) ;
+
+Table SCHEDULE altered.
+
+SQL> ALTER TABLE SCHEDULE ADD CONSTRAINT SCHEDULE_DRIVER_FKv1 FOREIGN KEY ( DRIVER_license_no1 ) REFERENCES DRIVER ( license_no ) ;
+
+Table SCHEDULE altered.
+
+SQL> ALTER TABLE SCHEDULE ADD CONSTRAINT SCHEDULE_TRUCK_FK FOREIGN KEY ( TRUCK_tvi_no ) REFERENCES TRUCK ( tvi_no ) ;
+
+Table SCHEDULE altered.
+
+SQL> CREATE SEQUENCE BIN_bin_id_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence BIN_BIN_ID_SEQ created.
+
+SQL> CREATE SEQUENCE BIN_REQUEST_request_id_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence BIN_REQUEST_REQUEST_ID_SEQ created.
+
+SQL> CREATE SEQUENCE CONTRACT_contract_no_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence CONTRACT_CONTRACT_NO_SEQ created.
+
+SQL> CREATE SEQUENCE DRIVER_license_no_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence DRIVER_LICENSE_NO_SEQ created.
+
+SQL> CREATE SEQUENCE INVOICE_invoice_no_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence INVOICE_INVOICE_NO_SEQ created.
+
+SQL> CREATE SEQUENCE PROPERTY_property_id_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence PROPERTY_PROPERTY_ID_SEQ created.
+
+SQL> CREATE SEQUENCE SCHEDULE_schdeule_id_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence SCHEDULE_SCHDEULE_ID_SEQ created.
+
+SQL> CREATE SEQUENCE TRUCK_tvi_no_SEQ START WITH 1 NOCACHE ORDER ;
+
+Sequence TRUCK_TVI_NO_SEQ created.
+
+SQL> spool off

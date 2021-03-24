@@ -1,0 +1,206 @@
+Table PROPERTY_COLLECTION dropped.
+
+Table PROPERTY_COLLECTION created.
+
+Table PROPERTY_COLLECTION altered.
+
+Table PROPERTY_COLLECTION altered.
+
+Table PROPERTY_COLLECTION altered.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+1 row inserted.
+
+
+COUNCIL_NAME                                     
+--------------------------------------------------
+City of Bliss Land                                
+City of En Carden                                 
+City of Far Out                                   
+City of Glen Eira                                 
+City of Soda Sodi                                 
+
+CONTRACT_NO CONTRACT_START_DATE CONTRACT_END_DATE COUNCIL_COUNCIL_NAME                             
+----------- ------------------- ----------------- --------------------------------------------------
+          1 01-01-2017          01-12-2017        City of Glen Eira                                 
+          2 01-02-2017          01-12-2017        City of En Carden                                 
+          3 01-03-2017          01-12-2017        City of Bliss Land                                
+          4 01-04-2017          01-12-2017        City of Far Out                                   
+          5 01-01-2017          01-12-2017        City of Soda Sodi                                 
+
+COLLECTION_TYPE                                    COLLECTION_COST CONTRACT_CONTRACT_NO
+-------------------------------------------------- --------------- --------------------
+Green                                                           10                    1
+Recycle                                                         10                    2
+Green                                                           90                    3
+Recycle                                                         79                    4
+Green                                                           20                    5
+General Waste                                                   50                    5
+Recycle                                                         50                    5
+
+ 7 rows selected 
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+PROPERTY_ID PROPERTY_ADDRESS                                   COUNCIL_COUNCIL_NAME                             
+----------- -------------------------------------------------- --------------------------------------------------
+          1 900 Dandenong RD                                   City of Glen Eira                                 
+          2 900 Fola RD                                        City of En Carden                                 
+          3 900 Mada RD                                        City of Bliss Land                                
+          4 900 Lakhan RD                                      City of Bliss Land                                
+          5 900 Lakhan RD                                      City of Bliss Land                                
+          6 900 Lakhan RD                                      City of Bliss Land                                
+          7 900 Lakhan RD                                      City of Bliss Land                                
+          8 900 Lakhan RD                                      City of Bliss Land                                
+          9 Jubilee Road                                       City of Far Out                                   
+         10 Parlour Road                                       City of Soda Sodi                                 
+         11 Parlour Road                                       City of Soda Sodi                                 
+
+ 11 rows selected 
+
+
+    BIN_ID PROPERTY_PROPERTY_ID BIN_TYPE_BIN_TYPE                                  BIN_TYPE_VOLUM_BIN
+---------- -------------------- -------------------------------------------------- ------------------
+         1                    1 Green                                                              80
+         2                    2 Recycle                                                            80
+         3                    3 General Waste                                                     100
+         4                    4 Green                                                              40
+         5                   10 Green                                                              80
+         6                   10 General Waste                                                     100
+         7                   10 Recycle                                                            80
+         8                   11 Green                                                              80
+         9                   11 General Waste                                                     100
+        10                   11 Recycle                                                            80
+
+ 10 rows selected 
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+
+1 row inserted.
+
+1 row inserted.
+
+   PROP_ID CONTRAC_NO COLLEC_TYPE                                        TOTAL_COLLECTED QTR_START_DATE QTR_END_DATE
+---------- ---------- -------------------------------------------------- --------------- -------------- ------------
+        10          5 Green                                                           30 01-01-2017     31-03-2017  
+        10          5 General Waste                                                   40 01-01-2017     31-03-2017  
+        10          5 Recycle                                                         50 01-01-2017     31-03-2017  
+        11          5 Green                                                           90 01-01-2017     31-03-2017  
+        11          5 General Waste                                                  100 01-01-2017     31-03-2017  
+        11          5 Recycle                                                         44 01-01-2017     31-03-2017  
+        10          5 Green                                                           32 01-04-2017     31-07-2017  
+        10          5 General Waste                                                   88 01-04-2017     31-07-2017  
+        10          5 Recycle                                                         59 01-04-2017     31-07-2017  
+        11          5 Green                                                           22 01-04-2017     31-07-2017  
+        11          5 General Waste                                                   44 01-04-2017     31-07-2017  
+
+   PROP_ID CONTRAC_NO COLLEC_TYPE                                        TOTAL_COLLECTED QTR_START_DATE QTR_END_DATE
+---------- ---------- -------------------------------------------------- --------------- -------------- ------------
+        11          5 Recycle                                                         88 01-04-2017     31-07-2017  
+
+ 12 rows selected 
+
+
+    TVI_NO REGISTRATION_NO MAKE                                               MODEL                                                    YEAR CURRENT_AVAIBILITY                               
+---------- --------------- -------------------------------------------------- -------------------------------------------------- ---------- --------------------------------------------------
+         1            5679 GERMANY                                            S CLASS                                                  1990 Y                                                 
+         2            1679 USA                                                B CLASS                                                  1910 Y                                                 
+         3            1079 BANGLADESH                                         D CLASS                                                  1900 Y                                                 
+         4            1000 INDIA                                              L CLASS                                                  1980 Y                                                 
+         5            1979 MALAYSIA                                           O CLASS                                                  1910 Y                                                 
+         6            2000 EUROPE                                             L CLASS                                                  1910 Y                                                 
+
+ 6 rows selected 
+
+SCHDEULE_ID SCHEDULE_DATE TRUCK_TVI_NO DRIVER_LICENSE_NO DRIVER_LICENSE_NO1
+----------- ------------- ------------ ----------------- ------------------
+          1 01-04-2017               1                 1                  2
+          2 02-04-2017               2                 1                  3
+          3 03-04-2017               3                 2                  3
+          4 03-04-2017               4                 4                  3
+          5 02-04-2017               5                 1                  3
+          6 02-04-2017               6                 1                  3
+
+ 6 rows selected 
+
+
+REQUEST_ID REQUEST_TYPE                                       PROPERTY_PROPERTY_ID BIN_BIN_ID BIN_TYPE_BIN_TYPE                                  BIN_TYPE_VOLUM_BIN SCHEDULE_SCHDEULE_ID
+---------- -------------------------------------------------- -------------------- ---------- -------------------------------------------------- ------------------ --------------------
+         1 DELIVERY                                                              1          1 Green                                                              80                    1
+         2 COLLECTION                                                            2          2 Recycle                                                            80                    2
+         3 COLLECTION                                                            3          3 General Waste                                                     100                    3
+         4 COLLECTION                                                            4          4 Green                                                              40                    4
+         5 COLLECTION                                                           10          7 Recycle                                                            80                    5
+         6 COLLECTION                                                           11          8 Green                                                              80                    6
+
+ 6 rows selected 
+
+Commit complete.
+
